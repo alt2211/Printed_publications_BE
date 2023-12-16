@@ -9,7 +9,6 @@ router.post('/deleteAllBooks', async (req: Request, res: Response) => {
   const { id } = req.body;
 
   try {
-    // Проверяем, существует ли книга с указанным id
       await db.query('DELETE FROM book WHERE id_user = ?', [id]);
       return res.status(200).json({ message: 'Книга успешно удалена' });
   } catch (error) {
