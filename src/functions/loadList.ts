@@ -31,15 +31,15 @@ try {
         //     publication_type: bookData.publication_type,
         //   };
         // });
-        const formattedUserBooks = userBooksResult.map((book: Book) => {
-            return {
-              ...book,
-              date: new Date(book.date).toISOString().split('T')[0], // Format date to YYYY-MM-DD
-            };
-          });
+        // const formattedUserBooks = userBooksResult.map((book: Book) => {
+        //     return {
+        //       ...book,
+        //       date: new Date(book.date).toISOString().split('T')[0], // Format date to YYYY-MM-DD
+        //     };
+        //   });
 
-        // res.json(userBooksResult);
-        res.json(formattedUserBooks);
+        res.json(userBooksResult);
+        // res.json(formattedUserBooks);
       }
     });
   } catch (error) {

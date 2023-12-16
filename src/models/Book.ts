@@ -3,7 +3,7 @@ export interface Book {
     id_user?: number;
     author: string;
     title: string;
-    date: Date;
+    date: number;
     city: string;
     description?: string;
     quantity: number;
