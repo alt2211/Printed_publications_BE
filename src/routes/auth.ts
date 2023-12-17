@@ -9,6 +9,17 @@ const router = Router();
 router.post('/login', (req: Request, res: Response) => {
   const { email, password }: User = req.body;
 
+  const passwordLength = password?.toString().length ?? 0;
+  const emailLength = email?.toString().length ?? 0;
+
+  if (emailLength > 50 || emailLength === 0){
+    return res.status(400).json({ message: 'Максимальная длина почты 50 символов' });
+  }
+  if (passwordLength > 30 || passwordLength === 0){
+    return res.status(400).json({ message: 'Максимальная длина пароля 50 символов' });
+  }
+
+
   db.query('SELECT * FROM user WHERE email = ?', [email], (err, results) => {
     if (err) {
       console.error('Ошибка входа:', err);

@@ -10,7 +10,7 @@ import deleteBook from './functions/deleteBook'
 import deleteAllBooks from './functions/deleteAllBooks'
 import addBook from './functions/addBook'
 import cors from 'cors';
-import { authMiddleware } from './functions/auth.middleware'
+// import { authMiddleware } from './functions/auth.middleware'
 
 const app = express();
 
