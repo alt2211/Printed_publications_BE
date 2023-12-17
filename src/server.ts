@@ -1,5 +1,5 @@
 import express from 'express';
-import authRouter from './routes/auth';
+import authRouter from './routes/auth'
 import registerRouter from './routes/register'
 import changePassword from './functions/changePassword'
 import changeEmail from './functions/changeEmail'
@@ -10,8 +10,11 @@ import deleteBook from './functions/deleteBook'
 import deleteAllBooks from './functions/deleteAllBooks'
 import addBook from './functions/addBook'
 import cors from 'cors';
+import { authMiddleware } from './functions/auth.middleware'
 
 const app = express();
+
+// app.use('/editBook', authMiddleware);
 
 app.use(cors());
 app.use(express.json());
@@ -25,6 +28,7 @@ app.use(editBook)
 app.use(deleteBook)
 app.use(deleteAllBooks)
 app.use(addBook)
+
 
 
 const PORT = process.env.PORT || 5000;
