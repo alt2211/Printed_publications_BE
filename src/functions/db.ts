@@ -3,8 +3,8 @@ import mysql from 'mysql'
 const dbConfig = {
     host: 'localhost',
     user: 'root',
-    password: 'admin',
-    database: 'bookscanDB',
+    password: 'root',
+    database: 'bookscandb',
   };
 
 const db = mysql.createConnection(dbConfig);
@@ -18,3 +18,5 @@ db.connect((err) => {
   });
 
 export default db;
+
+//Fka8u*aa
