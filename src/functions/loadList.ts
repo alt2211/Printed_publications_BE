@@ -13,15 +13,15 @@ try {
     db.query('SELECT * FROM book WHERE id_user = ?', [userId], (error, userBooksResult) => {
       if (error) {
         console.error(error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: 'Ошибка загрузки книг' });
       } else {
         res.json(userBooksResult);
       }
     });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500).json({ error: 'Ошибка загрузки книг' });
   }
-    });
+});
 
 export default router;

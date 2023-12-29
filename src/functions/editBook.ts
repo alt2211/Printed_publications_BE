@@ -1,8 +1,6 @@
 import { Router, Response, Request } from 'express';
 import { Book } from '../models/Book'; // Импортируем модель книги
 import db from './db';
-import * as jwt from 'jsonwebtoken';
-import config from 'config';
 import { authenticateToken } from './auth.middleware';
 
 const router = Router();
@@ -26,11 +24,11 @@ router.post('/editBook',authenticateToken, (req: Request, res: Response) => {
 
   db.query('UPDATE book SET ? WHERE id = ?', [bookData, id], (err, results) => {
     if (err) {
-      console.error('Ошибка добавления книги:', err);
-      res.status(500).json({ message: 'Ошибка добавления книги' });
+      console.error('Ошибка изменения:', err);
+      res.status(500).json({ error: 'Ошибка изменения' });
     } else {
       const insertedBookId = results.insertId;
-      res.json({ message: 'Книга успешно добавлена', bookId: insertedBookId });
+      res.json({ message: 'Поле изменено', bookId: insertedBookId });
     }
   });
 });

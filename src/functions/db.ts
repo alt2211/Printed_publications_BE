@@ -11,12 +11,10 @@ const db = mysql.createConnection(dbConfig);
 
 db.connect((err) => {
     if (err) {
-      console.error('Ошибка подключения к базе данных:', err);
+      console.error('Database connection error:', err);
     } else {
-      console.log('Подключено к базе данных');
+      console.log('Successfully connected to the database');
     }
   });
 
 export default db;
-
-//Fka8u*aa
