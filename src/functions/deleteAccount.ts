@@ -9,6 +9,7 @@ router.post('/deleteAccount', authenticateToken, async (req: Request, res: Respo
   
   try {
       await db.query('DELETE FROM user WHERE id = ?', [userId]);
+      await db.query('DELETE FROM book WHERE id_user = ?', [userId]);
       return res.status(200).json({ message: 'Аккаунт успешно удален' });
   } catch (error) {
     console.error('Ошибка при удалении аккаунта:', error);
