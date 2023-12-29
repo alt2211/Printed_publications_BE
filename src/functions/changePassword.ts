@@ -2,10 +2,11 @@ import { Router, Response, Request } from 'express';
 import db from '../functions/db';
 import * as jwt from 'jsonwebtoken';
 import config from 'config';
+import { authenticateToken } from './auth.middleware';
 
 const router = Router();
 
-router.post('/changePassword', async (req: Request, res: Response) => {
+router.post('/changePassword', authenticateToken, async (req: Request, res: Response) => {
   const { userId, newPassword } = req.body;
 
   try {

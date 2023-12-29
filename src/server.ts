@@ -10,11 +10,8 @@ import deleteBook from './functions/deleteBook'
 import deleteAllBooks from './functions/deleteAllBooks'
 import addBook from './functions/addBook'
 import cors from 'cors';
-// import { authMiddleware } from './functions/auth.middleware'
 
 const app = express();
-
-// app.use('/editBook', authMiddleware);
 
 app.use(cors());
 app.use(express.json());
@@ -28,8 +25,6 @@ app.use(editBook)
 app.use(deleteBook)
 app.use(deleteAllBooks)
 app.use(addBook)
-
-
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

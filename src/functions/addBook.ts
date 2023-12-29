@@ -3,11 +3,12 @@ import { Book } from '../models/Book'; // Импортируем модель к
 import db from './db';
 import * as jwt from 'jsonwebtoken';
 import config from 'config';
+import { authenticateToken } from './auth.middleware';
 
 const router = Router();
 
 
-router.post('/addBook', (req: Request, res: Response) => {
+router.post('/addBook', authenticateToken, (req: Request, res: Response) => {
   const {id_user, author, title, date, city, description, quantity, lbc, udc, ISBN, publication_type }: Book = req.body;
 
   const bookData: Book = {

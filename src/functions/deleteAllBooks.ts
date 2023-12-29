@@ -2,10 +2,11 @@ import { Router, Response, Request } from 'express';
 import db from '../functions/db';
 import * as jwt from 'jsonwebtoken';
 import config from 'config';
+import { authenticateToken } from './auth.middleware';
 
 const router = Router();
 
-router.post('/deleteAllBooks', async (req: Request, res: Response) => {
+router.post('/deleteAllBooks', authenticateToken,  async (req: Request, res: Response) => {
   const { id } = req.body;
 
   try {
